@@ -7,6 +7,7 @@ import { QueryChat } from "@/pages/chat/queryChat";
 
 import contactRoutes from "./ContactRoutes";
 import GlobalErrorElement from "./GlobalErrorElement";
+import manageRoutes from "./ManageRoutes";
 
 const router = createHashRouter([
   {
@@ -42,6 +43,14 @@ const router = createHashRouter([
               return { Component: Contact };
             },
             children: contactRoutes,
+          },
+          {
+            path: "manage",
+            async lazy() {
+              const { Manage } = await import("@/pages/manage");
+              return { Component: Manage };
+            },
+            children: manageRoutes,
           },
         ],
       },

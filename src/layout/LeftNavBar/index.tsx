@@ -12,6 +12,8 @@ import contact_icon from "@/assets/images/nav/nav_bar_contact.png";
 import contact_icon_active from "@/assets/images/nav/nav_bar_contact_active.png";
 import message_icon from "@/assets/images/nav/nav_bar_message.png";
 import message_icon_active from "@/assets/images/nav/nav_bar_message_active.png";
+import manage_icon from "@/assets/images/nav/nav_bar_workbench.png";
+import manage_icon_active from "@/assets/images/nav/nav_bar_workbench_active.png";
 import change_avatar from "@/assets/images/profile/change_avatar.png";
 import OIMAvatar from "@/components/OIMAvatar";
 import { useContactStore, useConversationStore, useUserStore } from "@/store";
@@ -39,11 +41,18 @@ const NavList = [
     title: t("placeholder.contact"),
     path: "/contact",
   },
+  {
+    icon: manage_icon,
+    icon_active: manage_icon_active,
+    title: t("placeholder.manage"),
+    path: "/manage",
+  },
 ];
 
 i18n.on("languageChanged", () => {
   NavList[0].title = t("placeholder.chat");
   NavList[1].title = t("placeholder.contact");
+  NavList[2].title = t("placeholder.manage");
 });
 
 const resizeFile = (file: File): Promise<File> =>
